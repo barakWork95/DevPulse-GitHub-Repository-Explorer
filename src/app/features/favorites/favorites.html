@@ -1,0 +1,14 @@
+<div class="favorites">
+  <h2>Favorites ({{ count() }})</h2>
+
+  @if (isEmpty()) {
+    <p>No favorites yet. Search for repositories and save them!</p>
+    <a routerLink="/search">Go to search</a>
+  } @else {
+    <div class="favorites__grid">
+      @for (repo of favorites(); track repo.id) {
+        <app-repo-card [repo]="repo" (selected)="navigateToRepo($event.owner.login, $event.name)" />
+      }
+    </div>
+  }
+</div>

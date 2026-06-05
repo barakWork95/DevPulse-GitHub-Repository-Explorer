@@ -1,0 +1,44 @@
+@if (repo) {
+  <div class="repo-detail">
+    <a routerLink="/search">← Back to search</a>
+
+    <div class="repo-detail__header">
+      <img [src]="repo.owner.avatar_url" [alt]="repo.owner.login" />
+      <div>
+        <h1>{{ repo.name }}</h1>
+        <span>{{ repo.owner.login }}</span>
+      </div>
+    </div>
+
+    @if (repo.description) {
+      <p>{{ repo.description }}</p>
+    }
+
+    <div class="repo-detail__stats">
+      <span>⭐ {{ repo.stargazers_count | formatNumber }} stars</span>
+      <span>🍴 {{ repo.forks_count | formatNumber }} forks</span>
+      <span>🐛 {{ repo.open_issues_count }} open issues</span>
+      @if (repo.language) {
+        <span>💻 {{ repo.language }}</span>
+      }
+    </div>
+
+    @if (repo.topics.length > 0) {
+      <div class="repo-detail__topics">
+        @for (topic of repo.topics; track topic) {
+          <span class="topic-badge">{{ topic }}</span>
+        }
+      </div>
+      <div class="repo-detail__readme">
+        <h2>README</h2>
+        @if (readmeLoading()) {
+          <p>Loading README...</p>
+        } @else {
+          <div class="readme-content" [innerHTML]="readme()"></div>
+        }
+      </div>
+    }
+
+    <a [href]="repo.html_url" target="_blank">View on GitHub →</a>
+  </div>
+}

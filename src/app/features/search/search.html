@@ -1,0 +1,25 @@
+<div class="search-container">
+  <input
+    [formControl]="searchControl"
+    type="text"
+    placeholder="Search GitHub repositories..."
+    class="search-input"
+  />
+
+  @if (isLoading()) {
+    <p class="results-count">Searching...</p>
+  }
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (hasResults()) {
+    <p class="results-count">{{ totalCount() | number }} repositories found</p>
+    <div class="results-grid">
+      @for (repo of results(); track repo.id) {
+        <app-repo-card [repo]="repo" (selected)="navigateToRepo($event.owner.login, $event.name)" />
+      }
+    </div>
+  }
+</div>

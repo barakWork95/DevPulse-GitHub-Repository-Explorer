@@ -1,0 +1,24 @@
+<div class="repo-card" (click)="onSelect()">
+  <div class="repo-card__header">
+    <img [src]="repo().owner.avatar_url" [alt]="repo().owner.login" class="repo-card__avatar" />
+    <div class="repo-card__title">
+      <h3 class="repo-card__name">{{ repo().name }}</h3>
+      <span class="repo-card__owner">{{ repo().owner.login }}</span>
+    </div>
+  </div>
+
+  @if (repo().description) {
+    <p class="repo-card__description">{{ repo().description }}</p>
+  }
+
+  <div class="repo-card__footer">
+    @if (repo().language) {
+      <span class="repo-card__language">{{ repo().language }}</span>
+    }
+    <span class="repo-card__stat">⭐ {{ repo().stargazers_count | formatNumber }}</span>
+    <span class="repo-card__stat">🍴 {{ repo().forks_count | formatNumber }}</span>
+    <button (click)="onToggleFavorite($event)">
+      {{ isFavorite() ? '❤️' : '🤍' }}
+    </button>
+  </div>
+</div>

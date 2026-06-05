@@ -1,0 +1,12 @@
+<nav class="navbar">
+  <a class="navbar__brand" routerLink="/search"> 🔍 DevPulse </a>
+
+  <div class="navbar__links">
+    <a routerLink="/search" routerLinkActive="active">Search</a>
+    <a routerLink="/favorites" routerLinkActive="active"> Favorites </a>
+  </div>
+
+  <button class="navbar__theme-btn" (click)="themeService.toggle()">
+    {{ themeService.theme() === 'dark' ? '☀️' : '🌙' }}
+  </button>
+</nav>
