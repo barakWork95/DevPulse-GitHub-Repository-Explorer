@@ -31,20 +31,20 @@ A modern Angular 22 application for searching and exploring GitHub repositories.
 
 ## 🏗️ Architecture
 
+```
 src/app/
 ├── core/
-│ ├── services/ # GithubService, SearchStateService, FavoritesService, ThemeService
-│ └── interceptors/ # LoadingInterceptor, ErrorInterceptor
+│   ├── services/          # GithubService, SearchStateService, FavoritesService, ThemeService
+│   └── interceptors/      # LoadingInterceptor, ErrorInterceptor
 ├── features/
-│ ├── search/ # Lazy loaded — RxJS search pipeline
-│ ├── repo-detail/ # Lazy loaded — ResolveFn pre-fetch + README render
-│ └── favorites/ # Lazy loaded — Signal-based persistence
+│   ├── search/            # Lazy loaded — RxJS search pipeline
+│   ├── repo-detail/       # Lazy loaded — ResolveFn pre-fetch + README render
+│   └── favorites/         # Lazy loaded — Signal-based persistence
 ├── shared/
-│ ├── components/ # RepoCard, Navbar
-│ └── pipes/ # FormatNumberPipe (1200 → 1.2k)
-└── models/ # TypeScript interfaces for GitHub API
-
----
+│   ├── components/        # RepoCard, Navbar
+│   └── pipes/             # FormatNumberPipe (1200 → 1.2k)
+└── models/                # TypeScript interfaces for GitHub API
+```
 
 ## 🚀 Run Locally
 
