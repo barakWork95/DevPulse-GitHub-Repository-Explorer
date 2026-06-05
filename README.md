@@ -2,7 +2,7 @@
 
 A modern Angular 22 application for searching and exploring GitHub repositories. Built to demonstrate advanced Angular patterns including Signals, RxJS pipelines, lazy loading, HTTP interceptors, and functional resolvers.
 
-**[Live Demo](https://your-demo-url.netlify.app)** · **[GitHub](https://github.com/barakWork95/devpulse)**
+**[Live Demo](https://startling-croquembouche-7475fa.netlify.app/)** · **[GitHub](https://github.com/barakWork95/devpulse)**
 
 ---
 
